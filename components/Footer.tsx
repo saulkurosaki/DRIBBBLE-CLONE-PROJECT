@@ -68,10 +68,10 @@ const Footer = () => {
               links={footerLinks[4].links}
             />
 
-            {/* <FooterColumn
+            <FooterColumn
               title={footerLinks[5].title}
               links={footerLinks[5].links}
-            /> */}
+            />
           </div>
 
           {/* <FooterColumn
