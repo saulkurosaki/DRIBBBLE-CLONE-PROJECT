@@ -74,11 +74,11 @@ const Footer = () => {
             />
           </div>
 
-          {/* <FooterColumn
+          <FooterColumn
             title={footerLinks[6].title}
             links={footerLinks[6].links}
           />
-        </div> */}
+        </div>
       </div>
     </footer>
   );
