@@ -63,10 +63,10 @@ const Footer = () => {
           />
 
           <div className="flex-1 flex flex-col gap-4">
-            {/* <FooterColumn
+            <FooterColumn
               title={footerLinks[4].title}
               links={footerLinks[4].links}
-            /> */}
+            />
 
             {/* <FooterColumn
               title={footerLinks[5].title}
