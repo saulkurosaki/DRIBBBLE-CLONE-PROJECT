@@ -51,10 +51,10 @@ const Footer = () => {
               links={footerLinks[1].links}
             />
 
-            {/* <FooterColumn
+            <FooterColumn
               title={footerLinks[2].title}
               links={footerLinks[2].links}
-            /> */}
+            />
           </div>
 
           {/* <FooterColumn
