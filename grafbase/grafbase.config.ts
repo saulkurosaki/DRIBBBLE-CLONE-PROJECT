@@ -1,10 +1,8 @@
-import { graph, config, auth } from "@grafbase/sdk";
-
-const g = graph.Standalone();
+import { g, config, auth } from "@grafbase/sdk";
 
 // @ts-ignore
 const User = g
-  .type("User", {
+  .model("User", {
     name: g.string().length({ min: 2, max: 100 }),
     email: g.string().unique(),
     avatarUrl: g.url(),
@@ -16,13 +14,13 @@ const User = g
       .list()
       .optional(),
   })
-  .auth((rules: any) => {
+  .auth((rules) => {
     rules.public().read();
   });
 
 // @ts-ignore
 const Project = g
-  .type("Project", {
+  .model("Project", {
     title: g.string().length({ min: 3 }),
     description: g.string(),
     image: g.url(),
@@ -31,20 +29,20 @@ const Project = g
     category: g.string().search(),
     createdBy: g.relation(() => User),
   })
-  .auth((rules: any) => {
+  .auth((rules) => {
     rules.public().read();
     rules.private().create().delete().update();
   });
 
 // const jwt = auth.JWT({
-//   issuer: "grafbase",
-//   secret: g.env("NEXTAUTH_SECRET"),
-// });
+//   issuer: 'grafbase',
+//   secret:  g.env('NEXTAUTH_SECRET')
+// })
 
 export default config({
-  graph: g,
+  schema: g,
   // auth: {
   //   providers: [jwt],
-  //   rules: (rules) => rules.private(),
+  //   rules: (rules) => rules.private()
   // },
 });
