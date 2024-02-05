@@ -11,7 +11,10 @@ const User = g
     description: g.string().length({ min: 2, max: 1000 }).optional(),
     githubUrl: g.url().optional(),
     linkedinUrl: g.url().optional(),
-    projects: g.ref(Project).list().optional(),
+    projects: g
+      .relation(() => Project)
+      .list()
+      .optional(),
   })
   .auth((rules: any) => {
     rules.public().read();
@@ -26,7 +29,7 @@ const Project = g
     liveSiteUrl: g.url(),
     githubUrl: g.url(),
     category: g.string().search(),
-    createdBy: g.ref(User),
+    createdBy: g.relation(() => User),
   })
   .auth((rules: any) => {
     rules.public().read();
@@ -34,14 +37,14 @@ const Project = g
   });
 
 // const jwt = auth.JWT({
-//   issuer: 'grafbase',
-//   secret:  g.env('NEXTAUTH_SECRET')
-// })
+//   issuer: "grafbase",
+//   secret: g.env("NEXTAUTH_SECRET"),
+// });
 
 export default config({
-  graph: g,
+  schema: g,
   // auth: {
   //   providers: [jwt],
-  //   rules: (rules) => rules.private()
+  //   rules: (rules: any) => rules.private(),
   // },
 });
