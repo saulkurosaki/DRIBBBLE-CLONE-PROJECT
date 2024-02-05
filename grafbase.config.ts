@@ -1,4 +1,6 @@
-import { g, config, auth } from "@grafbase/sdk";
+import { graph, config, auth } from "@grafbase/sdk";
+
+const g = graph.Standalone();
 
 // @ts-ignore
 const User = g
