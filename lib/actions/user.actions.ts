@@ -15,22 +15,22 @@ export const getUser = async (email: string) => {
   }
 };
 
-// export const createUser = async (
-//   name: string,
-//   email: string,
-//   avatarUrl: string
-// ) => {
-//   try {
-//     connectToDatabase();
+export const createUser = async (
+  name: string,
+  email: string,
+  avatarUrl: string
+) => {
+  try {
+    connectToDatabase();
 
-//     const newUser = await User.create({
-//       name,
-//       email,
-//       avatarUrl,
-//     });
+    const newUser = await User.create({
+      name,
+      email,
+      avatarUrl,
+    });
 
-//     return newUser;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+    return newUser;
+  } catch (error) {
+    console.log(error);
+  }
+};
