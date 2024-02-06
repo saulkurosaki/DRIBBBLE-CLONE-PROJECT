@@ -8,14 +8,18 @@ import { JWT } from "next-auth/jwt";
 export const authOptions: NextAuthOptions = {
   providers: [
     GoogleProvider({
-      clientId: "",
-      clientSecret: "",
+      clientId: process.env.GOOGLE_CLIENT_ID!,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
     }),
   ],
-  jwt: {
-    encode: ({ secret, token }) => {},
-    decode: async ({ secret, token }) => {},
-  },
+  //   jwt: {
+  //     encode: ({ secret, token }) => {
+
+  //     },
+  //     decode: async ({ secret, token }) => {
+
+  //     },
+  //   },
   theme: {
     colorScheme: "light",
     logo: "/logo.png",
