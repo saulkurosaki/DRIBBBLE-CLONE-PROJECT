@@ -3,11 +3,11 @@ import { Schema, models, model, Document } from "mongoose";
 export interface IUser extends Document {
   name: string;
   email: string;
-  avatarUrl: string;
-  description: string;
-  githubUrl: string;
-  linkedinUrl: string;
-  projects: Schema.Types.ObjectId[];
+  avatarUrl?: string;
+  description?: string;
+  githubUrl?: string;
+  linkedinUrl?: string;
+  projects?: Schema.Types.ObjectId[];
 }
 
 const UserSchema = new Schema({
