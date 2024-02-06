@@ -28,7 +28,24 @@ export const authOptions: NextAuthOptions = {
   },
   callbacks: {
     async session({ session }) {
-      return session;
+      const email = session?.user?.email as string;
+
+      try {
+        const data = getUser(email) as { user?: UserProfile };
+
+        const newSession = {
+          ...session,
+          user: {
+            ...session.user,
+            ...data?.user,
+          },
+        };
+
+        return newSession;
+      } catch (error) {
+        console.log("Error retrieving user data", error);
+        return session;
+      }
     },
     async signIn({ user }: { user: AdapterUser | User }) {
       try {
