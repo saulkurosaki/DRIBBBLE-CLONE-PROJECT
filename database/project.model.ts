@@ -3,10 +3,10 @@ import { Schema, models, model, Document } from "mongoose";
 export interface IProject extends Document {
   title: string;
   description: string;
-  image: string;
-  liveSiteUrl: string;
-  githubUrl: string;
-  category: string;
+  image?: string;
+  liveSiteUrl?: string;
+  githubUrl?: string;
+  category?: string;
   createdBy: Schema.Types.ObjectId;
 }
 
