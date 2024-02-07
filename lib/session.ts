@@ -7,6 +7,8 @@ import { JWT } from "next-auth/jwt";
 import { SessionInterface, UserProfile } from "@/common.types";
 import { createUser, getUser } from "./actions/user.actions";
 
+const secret = process.env.NEXTAUTH_SECRET as string;
+
 export const authOptions: NextAuthOptions = {
   providers: [
     GoogleProvider({
@@ -14,14 +16,25 @@ export const authOptions: NextAuthOptions = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
     }),
   ],
-  //   jwt: {
-  //     encode: ({ secret, token }) => {
+  jwt: {
+    encode: ({ token }) => {
+      const encodedToken = jsonwebtoken.sign(
+        {
+          ...token,
+          iss: "mongodb",
+          exp: Math.floor(Date.now() / 1000) + 60 * 60,
+        },
+        secret
+      );
 
-  //     },
-  //     decode: async ({ secret, token }) => {
+      return encodedToken;
+    },
+    // decode: async ({ token }) => {
+    //   const decodedToken = jsonwebtoken.verify(token!, secret) as JWT;
 
-  //     },
-  //   },
+    //   return decodedToken;
+    // },
+  },
   theme: {
     colorScheme: "light",
     logo: "/logo.png",
