@@ -29,11 +29,11 @@ export const authOptions: NextAuthOptions = {
 
       return encodedToken;
     },
-    // decode: async ({ token }) => {
-    //   const decodedToken = jsonwebtoken.verify(token!, secret) as JWT;
+    decode: async ({ token }) => {
+      const decodedToken = jsonwebtoken.verify(token!, secret) as JWT;
 
-    //   return decodedToken;
-    // },
+      return decodedToken;
+    },
   },
   theme: {
     colorScheme: "light",
