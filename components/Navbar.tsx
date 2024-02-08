@@ -1,5 +1,5 @@
 import { NavLinks } from "@/constants";
-import { SignedOut } from "@clerk/nextjs";
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "./ui/button";
@@ -24,6 +24,10 @@ const Navbar = async () => {
       </div>
 
       <div className="flexCenter gap-4">
+        <SignedIn>
+          <UserButton afterSignOutUrl="/" />
+        </SignedIn>
+
         <SignedOut>
           <Button
             asChild
