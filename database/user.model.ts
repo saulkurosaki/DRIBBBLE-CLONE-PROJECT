@@ -6,7 +6,7 @@ export interface IUser extends Document {
   avatarUrl?: string;
   description?: string;
   githubUrl?: string;
-  linkedinUrl?: string;
+  linkedInUrl?: string;
   projects?: Schema.Types.ObjectId[];
 }
 
@@ -16,7 +16,7 @@ const UserSchema = new Schema({
   avatarUrl: { type: String },
   description: { type: String, minlength: 2, maxlength: 1000 },
   githubUrl: { type: String },
-  linkedinUrl: { type: String },
+  linkedInUrl: { type: String },
   projects: [{ type: Schema.Types.ObjectId, ref: "Project" }],
 });
 
