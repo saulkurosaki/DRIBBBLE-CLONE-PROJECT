@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@clerk/nextjs": "^4.29.1",
+    "@clerk/nextjs": "^4.29.6",
     "@headlessui/react": "^1.7.15",
     "@radix-ui/react-slot": "^1.0.2",
     "@types/jsonwebtoken": "^9.0.2",
