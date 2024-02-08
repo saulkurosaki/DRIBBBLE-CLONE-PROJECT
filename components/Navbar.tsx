@@ -26,6 +26,13 @@ const Navbar = async () => {
       <div className="flexCenter gap-4">
         <SignedIn>
           <UserButton afterSignOutUrl="/" />
+          <Button
+            asChild
+            className="rounded-full w-28 bg-[#9747FF] text-white"
+            size="lg"
+          >
+            <Link href="/create-project">Share Work</Link>
+          </Button>
         </SignedIn>
 
         <SignedOut>
@@ -37,16 +44,6 @@ const Navbar = async () => {
             <Link href="/sign-in">Login</Link>
           </Button>
         </SignedOut>
-
-        {/* <Image
-          src="/" // {session.user.image}
-          alt="/" // {session.user.name}
-          width={40}
-          height={40}
-          className="rounded-full"
-        /> */}
-
-        {/* <Link href="/create-project">Share Work</Link> */}
       </div>
     </nav>
   );
