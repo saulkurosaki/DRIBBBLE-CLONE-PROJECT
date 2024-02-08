@@ -12,11 +12,13 @@ const Modal = ({ children }: { children: ReactNode }) => {
 
   const handleClick = () => {};
 
-  const onDismiss = () => {};
+  const onDismiss = () => {
+    router.push("/");
+  };
 
   return (
     <div ref={overlay} className="modal" onClick={handleClick}>
-      <Button onClick={onDismiss} className="absolute top-4 right-8">
+      <Button onClick={onDismiss} className="absolute top-[5px] right-8">
         <Image src="/close.svg" alt="close" width={17} height={17} />
       </Button>
 
