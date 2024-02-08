@@ -3,18 +3,6 @@
 import { connectToDatabase } from "../mongoose";
 import User from "@/database/user.model";
 
-export const getUser = async (email: string) => {
-  try {
-    connectToDatabase();
-
-    const user = await User.findOne({ email });
-
-    return user;
-  } catch (error) {
-    console.log(error);
-  }
-};
-
 type CreateUserParams = {
   clerkId: string;
   name: string;
@@ -29,6 +17,19 @@ export const createUser = async (user: CreateUserParams) => {
     const newUser = await User.create(user);
 
     return JSON.parse(JSON.stringify(newUser));
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getUserById = async (userId: string) => {
+  try {
+    connectToDatabase();
+
+    const user = await User.findById(userId);
+
+    if (!user) throw new Error("User not found");
+    return JSON.parse(JSON.stringify(user));
   } catch (error) {
     console.log(error);
   }
