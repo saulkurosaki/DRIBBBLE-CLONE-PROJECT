@@ -1,6 +1,8 @@
 import { NavLinks } from "@/constants";
+import { SignedOut } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
+import { Button } from "./ui/button";
 
 const Navbar = async () => {
   const session = true;
@@ -22,24 +24,25 @@ const Navbar = async () => {
       </div>
 
       <div className="flexCenter gap-4">
-        {session ? (
-          <>
-            {session && (
-              <Image
-                src="/" // {session.user.image}
-                alt="/" // {session.user.name}
-                width={40}
-                height={40}
-                className="rounded-full"
-              />
-            )}
+        <SignedOut>
+          <Button
+            asChild
+            className="rounded-full bg-[#9747FF] text-white"
+            size="lg"
+          >
+            <Link href="/sign-in">Login</Link>
+          </Button>
+        </SignedOut>
 
-            <Link href="/create-project">Share Work</Link>
-          </>
-        ) : (
-          <></>
-          // <AuthProviders />
-        )}
+        {/* <Image
+          src="/" // {session.user.image}
+          alt="/" // {session.user.name}
+          width={40}
+          height={40}
+          className="rounded-full"
+        /> */}
+
+        {/* <Link href="/create-project">Share Work</Link> */}
       </div>
     </nav>
   );
