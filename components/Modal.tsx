@@ -10,11 +10,18 @@ const Modal = ({ children }: { children: ReactNode }) => {
   const wrapper = useRef<HTMLDivElement>(null);
   const router = useRouter();
 
-  const handleClick = () => {};
-
-  const onDismiss = () => {
+  const onDismiss = useCallback(() => {
     router.push("/");
-  };
+  }, [router]);
+
+  const handleClick = useCallback(
+    (e: React.MouseEvent) => {
+      if (e.target === overlay.current && onDismiss) {
+        onDismiss();
+      }
+    },
+    [onDismiss, overlay]
+  );
 
   return (
     <div ref={overlay} className="modal" onClick={handleClick}>
