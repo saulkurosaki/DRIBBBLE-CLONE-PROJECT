@@ -57,14 +57,6 @@ const Navbar = async () => {
           >
             <Link href="/create-project">Share Work</Link>
           </Button>
-
-          <Button
-            asChild
-            className="rounded-full w-28 bg-[#9747FF] text-white"
-            size="lg"
-          >
-            <Link href="/create-project">Share Work</Link>
-          </Button>
         </SignedIn>
 
         <SignedOut>
