@@ -15,21 +15,20 @@ export const getUser = async (email: string) => {
   }
 };
 
-export const createUser = async (
-  name: string,
-  email: string,
-  avatarUrl: string
-) => {
+type CreateUserParams = {
+  clerkId: string;
+  name: string;
+  email: string;
+  avatarUrl: string;
+};
+
+export const createUser = async (user: CreateUserParams) => {
   try {
     connectToDatabase();
 
-    const newUser = await User.create({
-      name,
-      email,
-      avatarUrl,
-    });
+    const newUser = await User.create(user);
 
-    return newUser;
+    return JSON.parse(JSON.stringify(newUser));
   } catch (error) {
     console.log(error);
   }
