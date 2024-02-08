@@ -1,11 +1,24 @@
 import { NavLinks } from "@/constants";
-import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import {
+  SignedIn,
+  SignedOut,
+  UserButton,
+  auth,
+  clerkClient,
+  useAuth,
+  useUser,
+} from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "./ui/button";
+import { getUserById } from "@/lib/actions/user.actions";
 
 const Navbar = async () => {
-  const session = true;
+  const { userId } = auth();
+  const clerkUser = await clerkClient.users.getUser(userId as string);
+  const user_id = String(clerkUser.publicMetadata.userId);
+
+  const user = await getUserById(user_id);
 
   return (
     <nav className="flexBetween navbar">
@@ -26,6 +39,15 @@ const Navbar = async () => {
       <div className="flexCenter gap-4">
         <SignedIn>
           <UserButton afterSignOutUrl="/" />
+
+          <Button
+            asChild
+            className="rounded-full w-20 bg-[#9747FF] text-white"
+            size="lg"
+          >
+            <Link href={`/profile/${user._id}`}>Profile</Link>
+          </Button>
+
           <Button
             asChild
             className="rounded-full w-28 bg-[#9747FF] text-white"
