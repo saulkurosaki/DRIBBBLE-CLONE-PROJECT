@@ -1,7 +1,6 @@
 import { NavLinks } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
-import AuthProviders from "./AuthProviders";
 
 const Navbar = async () => {
   const session = true;
@@ -38,7 +37,8 @@ const Navbar = async () => {
             <Link href="/create-project">Share Work</Link>
           </>
         ) : (
-          <AuthProviders />
+          <></>
+          // <AuthProviders />
         )}
       </div>
     </nav>
