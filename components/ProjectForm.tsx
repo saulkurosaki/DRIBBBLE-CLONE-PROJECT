@@ -4,6 +4,8 @@ import { UserProps } from "@/types";
 import Image from "next/image";
 import { ChangeEvent } from "react";
 import FormField from "./FormField";
+import { categoryFilters } from "@/constants";
+import CustomMenu from "./CustomMenu";
 
 type Props = {
   type: string;
@@ -21,6 +23,7 @@ const ProjectForm = ({ type, user }: Props) => {
     description: "",
     liveSiteUrl: "",
     githubUrl: "",
+    category: "",
   };
 
   return (
@@ -77,14 +80,12 @@ const ProjectForm = ({ type, user }: Props) => {
         setState={(value) => handleStateChange("githubUrl", value)}
       />
 
-      {/* <FormField
-        title="Title"
-        state={form.title}
-        placeholder="Flexibble"
-        setState={(value) => handleStateChange("title", value)}
-      /> */}
-
-      {/* Custom Input Category */}
+      <CustomMenu
+        title="Category"
+        state={form.category}
+        filters={categoryFilters}
+        setState={(value) => handleStateChange("category", value)}
+      />
 
       <div className="flexStart w-full">
         <button>Create</button>
