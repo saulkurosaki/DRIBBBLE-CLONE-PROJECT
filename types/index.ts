@@ -22,7 +22,7 @@ export type ProjectProps = {
 export type FormFieldProps = {
   type?: string;
   title: string;
-  value: string;
+  state: string;
   placeholder: string;
   isTextArea?: boolean;
   setState: (value: string) => void;
