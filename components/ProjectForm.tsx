@@ -2,7 +2,7 @@
 
 import { UserProps } from "@/types";
 import Image from "next/image";
-import { ChangeEvent } from "react";
+import { ChangeEvent, useState } from "react";
 import FormField from "./FormField";
 import { categoryFilters } from "@/constants";
 import CustomMenu from "./CustomMenu";
@@ -13,17 +13,22 @@ type Props = {
 };
 
 const ProjectForm = ({ type, user }: Props) => {
-  const handleFormSubmit = (e: React.FormEvent) => {};
-  const handleChangeImage = (e: ChangeEvent<HTMLInputElement>) => {};
-  const handleStateChange = (fieldName: string, value: string) => {};
-
-  const form = {
-    image: "",
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [form, setForm] = useState({
     title: "",
     description: "",
+    image: "",
     liveSiteUrl: "",
     githubUrl: "",
     category: "",
+  });
+
+  const handleFormSubmit = (e: React.FormEvent) => {};
+
+  const handleChangeImage = (e: ChangeEvent<HTMLInputElement>) => {};
+
+  const handleStateChange = (fieldName: string, value: string) => {
+    setForm((prevState) => ({ ...prevState, [fieldName]: value }));
   };
 
   return (
