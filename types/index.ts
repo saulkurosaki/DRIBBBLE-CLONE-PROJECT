@@ -27,3 +27,10 @@ export type FormFieldProps = {
   isTextArea?: boolean;
   setState: (value: string) => void;
 };
+
+export type CustomMenuProps = {
+  title: string;
+  state: string;
+  filters: Array<string>;
+  setState: (value: string) => void;
+};
