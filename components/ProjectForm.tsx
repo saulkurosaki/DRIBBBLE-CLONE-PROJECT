@@ -3,6 +3,7 @@
 import { UserProps } from "@/types";
 import Image from "next/image";
 import { ChangeEvent } from "react";
+import FormField from "./FormField";
 
 type Props = {
   type: string;
@@ -11,11 +12,12 @@ type Props = {
 
 const ProjectForm = ({ type, user }: Props) => {
   const handleFormSubmit = (e: React.FormEvent) => {};
-
   const handleChangeImage = (e: ChangeEvent<HTMLInputElement>) => {};
+  const handleStateChange = (fieldName: string, value: string) => {};
 
   const form = {
     image: "",
+    title: "",
   };
 
   return (
@@ -41,6 +43,13 @@ const ProjectForm = ({ type, user }: Props) => {
           />
         )}
       </div>
+
+      <FormField
+        title="Title"
+        state={form.title}
+        placeholder="Flexibble"
+        setState={(value) => handleStateChange("title", value)}
+      />
     </form>
   );
 };
