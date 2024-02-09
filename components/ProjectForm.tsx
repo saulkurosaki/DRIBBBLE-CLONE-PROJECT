@@ -69,13 +69,13 @@ const ProjectForm = ({ type, user }: Props) => {
         setState={(value) => handleStateChange("liveSiteUrl", value)}
       />
 
-      {/* <FormField
+      <FormField
         type="url"
         title="GitHub URL"
         state={form.githubUrl}
         placeholder="https://github.com/saulkurosaki"
         setState={(value) => handleStateChange("githubUrl", value)}
-      /> */}
+      />
 
       {/* <FormField
         title="Title"
