@@ -61,13 +61,13 @@ const ProjectForm = ({ type, user }: Props) => {
         setState={(value) => handleStateChange("description", value)}
       />
 
-      {/* <FormField
+      <FormField
         type="url"
         title="Website URL"
         state={form.liveSiteUrl}
         placeholder="https://flexibble.com"
         setState={(value) => handleStateChange("liveSiteUrl", value)}
-      /> */}
+      />
 
       {/* <FormField
         type="url"
