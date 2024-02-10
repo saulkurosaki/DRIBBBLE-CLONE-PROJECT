@@ -6,6 +6,7 @@ import { ChangeEvent, useState } from "react";
 import FormField from "./FormField";
 import { categoryFilters } from "@/constants";
 import CustomMenu from "./CustomMenu";
+import CustomButton from "./CustomButton";
 
 type Props = {
   type: string;
@@ -115,7 +116,16 @@ const ProjectForm = ({ type, user }: Props) => {
       />
 
       <div className="flexStart w-full">
-        <button>Create</button>
+        <CustomButton
+          title={
+            isSubmitting
+              ? `${type === "create" ? "Creating" : "Editing"}`
+              : `${type === "create" ? "Create" : "Edit"}`
+          }
+          type="submit"
+          leftIcon={isSubmitting ? "" : "/plus.svg"}
+          isSubmitting={isSubmitting}
+        />
       </div>
     </form>
   );
