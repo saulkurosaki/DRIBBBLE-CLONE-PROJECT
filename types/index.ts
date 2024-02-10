@@ -21,6 +21,13 @@ export type ProjectProps = {
   createdBy: Object;
 };
 
+export type CreateUserParams = {
+  clerkId: string;
+  name: string;
+  email: string;
+  avatarUrl: string;
+};
+
 export type FormFieldProps = {
   type?: string;
   title: string;
