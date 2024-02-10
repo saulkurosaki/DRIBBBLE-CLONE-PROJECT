@@ -1,3 +1,5 @@
+import { MouseEventHandler } from "react";
+
 export type UserProps = {
   clerkId: string;
   name: string;
@@ -33,4 +35,15 @@ export type CustomMenuProps = {
   state: string;
   filters: Array<string>;
   setState: (value: string) => void;
+};
+
+export type CustomButtonProps = {
+  title: string;
+  leftIcon?: string | null;
+  rightIcon?: string | null;
+  handleClick?: MouseEventHandler;
+  isSubmitting?: boolean;
+  type?: "button" | "submit";
+  bgColor?: string;
+  textColor?: string;
 };
