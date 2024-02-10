@@ -1,14 +1,8 @@
 "use server";
 
+import { CreateUserParams } from "@/types";
 import { connectToDatabase } from "../mongoose";
 import User from "@/database/user.model";
-
-type CreateUserParams = {
-  clerkId: string;
-  name: string;
-  email: string;
-  avatarUrl: string;
-};
 
 export const createUser = async (user: CreateUserParams) => {
   try {
