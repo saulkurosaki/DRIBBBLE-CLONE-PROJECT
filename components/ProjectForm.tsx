@@ -33,14 +33,16 @@ const ProjectForm = ({ type, user }: Props) => {
     if (!file) return;
 
     if (!file.type.includes("image")) {
-      return alert("Please upload an image file");
+      alert("Please upload an image file");
+
+      return;
     }
 
     const reader = new FileReader();
 
     reader.readAsDataURL(file);
 
-    reader.onload() = () => {
+    reader.onload = () => {
       const result = reader.result as string;
 
       handleStateChange("image", result);
