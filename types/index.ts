@@ -1,5 +1,21 @@
+import { ProjectForm } from "@/common.types";
 import { MouseEventHandler } from "react";
 
+// Server Actions Params types
+export type CreateUserParams = {
+  clerkId: string;
+  name: string;
+  email: string;
+  avatarUrl: string;
+};
+
+export type CreateNewProjectParams = {
+  form: ProjectForm;
+  creatorId: string;
+  token: string;
+};
+
+// Normal Project Props types
 export type UserProps = {
   clerkId: string;
   name: string;
@@ -19,13 +35,6 @@ export type ProjectProps = {
   githubUrl?: string;
   category?: string;
   createdBy: Object;
-};
-
-export type CreateUserParams = {
-  clerkId: string;
-  name: string;
-  email: string;
-  avatarUrl: string;
 };
 
 export type FormFieldProps = {
