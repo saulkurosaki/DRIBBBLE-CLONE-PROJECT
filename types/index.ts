@@ -12,7 +12,6 @@ export type CreateUserParams = {
 export type CreateNewProjectParams = {
   form: ProjectForm;
   creatorId: string;
-  token: string;
 };
 
 // Normal Project Props types
