@@ -16,6 +16,7 @@ export type CreateNewProjectParams = {
 
 // Normal Project Props types
 export type UserProps = {
+  _id?: string | undefined;
   clerkId: string;
   name: string;
   email: string;
