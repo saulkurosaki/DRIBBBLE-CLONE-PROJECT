@@ -19,7 +19,7 @@ const Navbar = async () => {
     const clerkUser = await clerkClient.users.getUser(userId as string);
     const user_id = String(clerkUser.publicMetadata.userId);
     const user = await getUserById(user_id);
-    _id = user._id;
+    _id = user?._id;
   }
 
   return (
