@@ -4,6 +4,7 @@ import { connectToDatabase } from "../mongoose";
 import { CreateNewProjectParams } from "@/types";
 import { uploadImage } from "../utils";
 import Project from "@/database/project.model";
+import User from "@/database/user.model";
 
 export const createNewProject = async (params: CreateNewProjectParams) => {
   try {
@@ -18,6 +19,11 @@ export const createNewProject = async (params: CreateNewProjectParams) => {
         ...form,
         image: imageUrl.url,
         createdBy: creatorId,
+      });
+
+      // Update User model
+      await User.findByIdAndUpdate(creatorId, {
+        $push: { projects: newProject._id },
       });
 
       return JSON.parse(JSON.stringify(newProject));
