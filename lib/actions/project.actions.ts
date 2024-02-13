@@ -32,3 +32,15 @@ export const createNewProject = async (params: CreateNewProjectParams) => {
     console.log(error);
   }
 };
+
+export const fetchAllProjects = async () => {
+  try {
+    connectToDatabase();
+
+    const allProjects = await Project.find();
+
+    return JSON.parse(JSON.stringify(allProjects));
+  } catch (error) {
+    console.log(error);
+  }
+};
