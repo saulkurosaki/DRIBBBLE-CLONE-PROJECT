@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const ProjectCard = ({ id, image, title }: ProjectCardProps) => {
+const ProjectCard = ({ id, image, title, userId }: ProjectCardProps) => {
   return (
     <div className="flexCenter flex-col rounded-2xl drop-shadow-card">
       <Link
