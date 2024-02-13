@@ -17,6 +17,10 @@ const ProjectCard = ({ id, image, title }: ProjectCardProps) => {
           height={314}
           className="w-full h-full object-cover rounded-2xl"
         />
+
+        <div className="hidden group-hover:flex profile_card-title">
+          <p className="w-full">{title}</p>
+        </div>
       </Link>
     </div>
   );
