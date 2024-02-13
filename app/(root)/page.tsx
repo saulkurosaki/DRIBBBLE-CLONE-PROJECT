@@ -1,6 +1,8 @@
 import ProjectCard from "@/components/ProjectCard";
 import { fetchAllProjects } from "@/lib/actions/project.actions";
+import { getUserById } from "@/lib/actions/user.actions";
 import { ProjectInterface } from "@/types";
+import { auth, clerkClient } from "@clerk/nextjs";
 
 const Home = async () => {
   const projects = await fetchAllProjects();
@@ -26,6 +28,7 @@ const Home = async () => {
             id={project?._id}
             image={project?.image}
             title={project?.title}
+            userId={project.createdBy}
           />
         ))}
       </section>
