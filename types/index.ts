@@ -63,3 +63,14 @@ export type CustomButtonProps = {
   bgColor?: string;
   textColor?: string;
 };
+
+export type ProjectInterface = {
+  _id: string;
+  title: string;
+  description: string;
+  image: string;
+  liveSiteUrl: string;
+  githubUrl: string;
+  category: string;
+  createdBy: string;
+};
