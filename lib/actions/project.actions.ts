@@ -17,9 +17,7 @@ export const createNewProject = async (params: CreateNewProjectParams) => {
       const newProject = await Project.create({
         ...form,
         image: imageUrl.url,
-        createdBy: {
-          link: creatorId,
-        },
+        createdBy: creatorId,
       });
 
       return JSON.parse(JSON.stringify(newProject));
