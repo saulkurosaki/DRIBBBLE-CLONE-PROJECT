@@ -74,3 +74,9 @@ export type ProjectInterface = {
   category: string;
   createdBy: string;
 };
+
+export type ProjectCardProps = {
+  id: string;
+  image: string;
+  title: string;
+};
