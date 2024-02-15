@@ -44,3 +44,15 @@ export const fetchAllProjects = async () => {
     console.log(error);
   }
 };
+
+export const getProjectDetails = async (id: string) => {
+  try {
+    connectToDatabase();
+
+    const project = await Project.findById(id);
+
+    return JSON.parse(JSON.stringify(project));
+  } catch (error) {
+    console.log(error);
+  }
+};
