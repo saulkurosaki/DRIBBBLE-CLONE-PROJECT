@@ -81,7 +81,7 @@ const ProjectDetails = async ({
       <section className="flexCenter flex-col mt-20">
         <p className="max-w-5xl text-xl font-normal">{project?.description}</p>
 
-        {/* <div className="flex flex-wrap mt-5 gap-5">
+        <div className="flex flex-wrap mt-5 gap-5">
           <Link
             href={project?.githubUrl}
             target="_blank"
@@ -90,7 +90,7 @@ const ProjectDetails = async ({
           >
             🖥 <span className="underline">Github</span>
           </Link>
-          <Image src="/dot.svg" width={4} height={4} alt="dot" />
+          {/* <Image src="/dot.svg" width={4} height={4} alt="dot" />
           <Link
             href={project?.liveSiteUrl}
             target="_blank"
@@ -98,8 +98,8 @@ const ProjectDetails = async ({
             className="flexCenter gap-2 tex-sm font-medium text-primary-purple"
           >
             🚀 <span className="underline">Live Site</span>
-          </Link>
-        </div> */}
+          </Link> */}
+        </div>
       </section>
 
       {/* <section className="flexCenter w-full gap-8 mt-28">
