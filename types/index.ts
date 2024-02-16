@@ -83,6 +83,6 @@ export type ProjectCardProps = {
 };
 
 export type RelatedProjectsProps = {
-  userId: string;
+  user: UserProps;
   projectId: string;
 };
