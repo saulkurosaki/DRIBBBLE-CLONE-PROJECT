@@ -90,7 +90,7 @@ const ProjectDetails = async ({
           >
             🖥 <span className="underline">Github</span>
           </Link>
-          {/* <Image src="/dot.svg" width={4} height={4} alt="dot" />
+          <Image src="/dot.svg" width={4} height={4} alt="dot" />
           <Link
             href={project?.liveSiteUrl}
             target="_blank"
@@ -98,7 +98,7 @@ const ProjectDetails = async ({
             className="flexCenter gap-2 tex-sm font-medium text-primary-purple"
           >
             🚀 <span className="underline">Live Site</span>
-          </Link> */}
+          </Link>
         </div>
       </section>
 
