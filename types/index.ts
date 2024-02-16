@@ -24,7 +24,7 @@ export type UserProps = {
   description?: string;
   githubUrl?: string;
   linkedInUrl?: string;
-  projects?: Array<Object>;
+  projects?: Array<string>;
 };
 
 export type ProjectProps = {
