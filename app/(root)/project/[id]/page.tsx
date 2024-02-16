@@ -102,7 +102,7 @@ const ProjectDetails = async ({
         </div>
       </section>
 
-      {/* <section className="flexCenter w-full gap-8 mt-28">
+      <section className="flexCenter w-full gap-8 mt-28">
         <span className="w-full h-0.5 bg-light-white-200" />
         <Link href={renderLink()} className="min-w-[82px] h-[82px]">
           <Image
@@ -114,7 +114,7 @@ const ProjectDetails = async ({
           />
         </Link>
         <span className="w-full h-0.5 bg-light-white-200" />
-      </section> */}
+      </section>
 
       {/* <RelatedProjects userId={projectUser?._id} projectId={project?._id} /> */}
     </Modal>
