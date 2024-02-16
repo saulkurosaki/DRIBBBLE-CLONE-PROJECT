@@ -1,6 +1,6 @@
 "use client";
 
-import { UserProps } from "@/types";
+import { ProjectFormProps, UserProps } from "@/types";
 import Image from "next/image";
 import { ChangeEvent, useEffect, useState } from "react";
 import FormField from "./FormField";
@@ -10,12 +10,7 @@ import CustomButton from "./CustomButton";
 import { createNewProject } from "@/lib/actions/project.actions";
 import { useRouter } from "next/navigation";
 
-type Props = {
-  type: string;
-  user: UserProps;
-};
-
-const ProjectForm = ({ type, user }: Props) => {
+const ProjectForm = ({ type, user }: ProjectFormProps) => {
   const router = useRouter();
 
   const [isSubmitting, setIsSubmitting] = useState(false);
