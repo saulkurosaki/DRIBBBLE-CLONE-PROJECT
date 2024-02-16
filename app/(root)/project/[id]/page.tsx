@@ -68,7 +68,7 @@ const ProjectDetails = async ({
         )} */}
       </section>
 
-      {/* <section className="mt-14">
+      <section className="mt-14">
         <Image
           src={`${project?.image}`}
           className="object-cover rounded-2xl"
@@ -76,7 +76,7 @@ const ProjectDetails = async ({
           height={798}
           alt="poster"
         />
-      </section> */}
+      </section>
 
       {/* <section className="flexCenter flex-col mt-20">
         <p className="max-w-5xl text-xl font-normal">{project?.description}</p>
