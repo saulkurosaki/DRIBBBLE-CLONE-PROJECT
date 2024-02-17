@@ -23,7 +23,7 @@ const RelatedProjects = async ({ user, projectId }: RelatedProjectsProps) => {
         </Link>
       </div>
 
-      {/* <div className="related_projects-grid">
+      <div className="related_projects-grid">
         {filteredProjects?.map((project: ProjectProps) => (
           <div
             className="flexCenter related_project-card drop-shadow-card"
@@ -41,13 +41,13 @@ const RelatedProjects = async ({ user, projectId }: RelatedProjectsProps) => {
                 alt="project image"
               />
 
-              <div className="hidden group-hover:flex related_project-card_title">
+              {/* <div className="hidden group-hover:flex related_project-card_title">
                 <p className="w-full">{project?.title}</p>
-              </div>
+              </div> */}
             </Link>
           </div>
         ))}
-      </div> */}
+      </div>
     </section>
   );
 };
