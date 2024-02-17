@@ -116,7 +116,7 @@ const ProjectDetails = async ({
         <span className="w-full h-0.5 bg-light-white-200" />
       </section>
 
-      <RelatedProjects userId={projectUser?._id} projectId={project?._id} />
+      <RelatedProjects user={projectUser} projectId={project?._id} />
     </Modal>
   );
 };
