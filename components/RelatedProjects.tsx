@@ -41,9 +41,9 @@ const RelatedProjects = async ({ user, projectId }: RelatedProjectsProps) => {
                 alt="project image"
               />
 
-              {/* <div className="hidden group-hover:flex related_project-card_title">
+              <div className="hidden group-hover:flex related_project-card_title">
                 <p className="w-full">{project?.title}</p>
-              </div> */}
+              </div>
             </Link>
           </div>
         ))}
