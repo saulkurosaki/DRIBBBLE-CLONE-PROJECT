@@ -61,11 +61,11 @@ const ProjectDetails = async ({
           </div>
         </div>
 
-        {/* {currentUser?.email === projectUser?.email && (
+        {currentUser?.email === projectUser?.email && (
           <div className="flex justify-end items-center gap-2">
             <ProjectActions projectId={project?._id} />
           </div>
-        )} */}
+        )}
       </section>
 
       <section className="mt-14">
