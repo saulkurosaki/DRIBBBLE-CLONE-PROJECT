@@ -28,13 +28,14 @@ export type UserProps = {
 };
 
 export type ProjectProps = {
+  _id?: string;
   title: string;
   description: string;
-  image?: string;
-  liveSiteUrl?: string;
-  githubUrl?: string;
-  category?: string;
-  createdBy: Object;
+  image: string;
+  liveSiteUrl: string;
+  githubUrl: string;
+  category: string;
+  createdBy: string;
 };
 
 export type FormFieldProps = {
