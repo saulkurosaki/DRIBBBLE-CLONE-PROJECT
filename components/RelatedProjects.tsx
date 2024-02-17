@@ -1,9 +1,8 @@
-import { getProjectDetails } from "@/lib/actions/project.actions";
 import { getUserProjects } from "@/lib/utils";
-import { ProjectInterface, RelatedProjectsProps } from "@/types";
+import { ProjectProps, RelatedProjectsProps } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React from "react";
 
 const RelatedProjects = async ({ user, projectId }: RelatedProjectsProps) => {
   const userProjectsIds = user?.projects;
@@ -12,29 +11,30 @@ const RelatedProjects = async ({ user, projectId }: RelatedProjectsProps) => {
     (project) => project?._id !== projectId
   );
 
-  console.log(filteredProjects);
-
   return (
     <section className="flex flex-col mt-32 w-full">
-      {/* <div className="flexBetween">
-        <p className="text-base font-bold">More by {result?.user?.name}</p>
+      <div className="flexBetween">
+        <p className="text-base font-bold">More by {user?.name}</p>
         <Link
-          href={`/profile/${result?.user?.id}`}
+          href={`/profile/${user?._id}`}
           className="text-primary-purple text-base"
         >
           View All
         </Link>
       </div>
 
-      <div className="related_projects-grid">
-        {filteredProjects?.map(({ node }: { node: ProjectInterface }) => (
-          <div className="flexCenter related_project-card drop-shadow-card">
+      {/* <div className="related_projects-grid">
+        {filteredProjects?.map((project: ProjectProps) => (
+          <div
+            className="flexCenter related_project-card drop-shadow-card"
+            key={project?._id}
+          >
             <Link
-              href={`/project/${node?.id}`}
+              href={`/project/${project?._id}`}
               className="flexCenter group relative w-full h-full"
             >
               <Image
-                src={node?.image}
+                src={project?.image}
                 width={414}
                 height={314}
                 className="w-full h-full object-cover rounded-2xl"
@@ -42,7 +42,7 @@ const RelatedProjects = async ({ user, projectId }: RelatedProjectsProps) => {
               />
 
               <div className="hidden group-hover:flex related_project-card_title">
-                <p className="w-full">{node?.title}</p>
+                <p className="w-full">{project?.title}</p>
               </div>
             </Link>
           </div>
