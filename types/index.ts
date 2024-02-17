@@ -98,3 +98,16 @@ export type ProjectActionsProps = {
   user: UserProps;
   projectId: string;
 };
+
+export type UpdateProjectParams = {
+  form: {
+    title: string;
+    description: string;
+    image: string;
+    liveSiteUrl: string;
+    githubUrl: string;
+    category: string;
+  };
+  projectId: string | undefined;
+  currentUserId: string | undefined;
+};
