@@ -1,7 +1,7 @@
 "use server";
 
 import { connectToDatabase } from "../mongoose";
-import { CreateNewProjectParams } from "@/types";
+import { CreateNewProjectParams, UpdateProjectParams } from "@/types";
 import { uploadImage } from "../utils";
 import Project from "@/database/project.model";
 import User from "@/database/user.model";
@@ -70,6 +70,35 @@ export const deleteProject = async (
     await User.findByIdAndUpdate(creatorId, {
       $pull: { projects: projectId },
     });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const updateProject = async ({
+  form,
+  projectId,
+  currentUserId,
+}: UpdateProjectParams) => {
+  try {
+    connectToDatabase();
+
+    const projectToUpdate = await Project.findById(projectId);
+
+    if (
+      !projectToUpdate ||
+      projectToUpdate.createdBy.toHexString() !== currentUserId
+    ) {
+      throw new Error("Unauthorized or event not found");
+    }
+
+    const updatedProject = await Project.findByIdAndUpdate(
+      projectId,
+      { ...form },
+      { new: true }
+    );
+
+    return JSON.parse(JSON.stringify(updatedProject));
   } catch (error) {
     console.log(error);
   }
