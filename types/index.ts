@@ -94,5 +94,6 @@ export type ProjectFormProps = {
 };
 
 export type ProjectActionsProps = {
+  user: UserProps;
   projectId: string;
 };
