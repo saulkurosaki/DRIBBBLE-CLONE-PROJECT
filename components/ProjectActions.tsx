@@ -34,7 +34,7 @@ const ProjectActions = ({ projectId }: ProjectActionsProps) => {
         <Image src="/pencile.svg" width={15} height={15} alt="edit" />
       </Link>
 
-      {/* <button
+      <button
         type="button"
         disabled={isDeleting}
         className={`flexCenter delete-action_btn ${
@@ -43,7 +43,7 @@ const ProjectActions = ({ projectId }: ProjectActionsProps) => {
         onClick={handleDeleteProject}
       >
         <Image src="/trash.svg" width={15} height={15} alt="delete" />
-      </button> */}
+      </button>
     </>
   );
 };
