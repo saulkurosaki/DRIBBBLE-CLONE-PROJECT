@@ -5,6 +5,7 @@ import { CreateNewProjectParams } from "@/types";
 import { uploadImage } from "../utils";
 import Project from "@/database/project.model";
 import User from "@/database/user.model";
+import { revalidatePath } from "next/cache";
 
 export const createNewProject = async (params: CreateNewProjectParams) => {
   try {
@@ -52,6 +53,16 @@ export const getProjectDetails = async (id: string) => {
     const project = await Project.findById(id);
 
     return JSON.parse(JSON.stringify(project));
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const deleteProject = async (projectId: string) => {
+  try {
+    connectToDatabase();
+
+    await Project.findByIdAndDelete(projectId);
   } catch (error) {
     console.log(error);
   }
