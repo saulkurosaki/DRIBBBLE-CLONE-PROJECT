@@ -58,11 +58,18 @@ export const getProjectDetails = async (id: string) => {
   }
 };
 
-export const deleteProject = async (projectId: string) => {
+export const deleteProject = async (
+  projectId: string,
+  creatorId: string | undefined
+) => {
   try {
     connectToDatabase();
 
     await Project.findByIdAndDelete(projectId);
+
+    await User.findByIdAndUpdate(creatorId, {
+      $pull: { projects: projectId },
+    });
   } catch (error) {
     console.log(error);
   }
