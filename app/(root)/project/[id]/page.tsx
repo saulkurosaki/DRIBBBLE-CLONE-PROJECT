@@ -28,10 +28,6 @@ const ProjectDetails = async ({
 
   const renderLink = () => `/profile/${projectUser._id}`;
 
-  // console.log(project);
-  // console.log(projectUser);
-  // console.log(currentUser);
-
   return (
     <Modal>
       <section className="flexBetween gap-y-8 max-w-4xl max-xs:flex-col w-full">
@@ -63,7 +59,7 @@ const ProjectDetails = async ({
 
         {currentUser?.email === projectUser?.email && (
           <div className="flex justify-end items-center gap-2">
-            <ProjectActions projectId={project?._id} />
+            <ProjectActions user={projectUser} projectId={project?._id} />
           </div>
         )}
       </section>
