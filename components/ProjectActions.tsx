@@ -7,7 +7,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
-const ProjectActions = ({ projectId }: ProjectActionsProps) => {
+const ProjectActions = ({ user, projectId }: ProjectActionsProps) => {
   const [isDeleting, setIsDeleting] = useState<boolean>(false);
   const router = useRouter();
 
@@ -15,7 +15,7 @@ const ProjectActions = ({ projectId }: ProjectActionsProps) => {
     setIsDeleting(true);
 
     try {
-      await deleteProject(projectId);
+      await deleteProject(projectId, user?._id);
 
       router.push("/");
     } catch (error) {
