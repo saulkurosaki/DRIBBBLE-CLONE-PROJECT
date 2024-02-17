@@ -27,14 +27,14 @@ const ProjectActions = ({ projectId }: ProjectActionsProps) => {
 
   return (
     <>
-      {/* <Link
+      <Link
         href={`/edit-project/${projectId}`}
         className="flexCenter edit-action_btn"
       >
         <Image src="/pencile.svg" width={15} height={15} alt="edit" />
       </Link>
 
-      <button
+      {/* <button
         type="button"
         disabled={isDeleting}
         className={`flexCenter delete-action_btn ${
