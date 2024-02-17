@@ -1,5 +1,6 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { getProjectDetails } from "./actions/project.actions";
 
 const isProduction = process.env.NODE_ENV === "production";
 const serverUrl = isProduction
@@ -22,3 +23,29 @@ export const uploadImage = async (imagePath: string) => {
     throw error;
   }
 };
+
+export async function getUserProjects(
+  userProjectsIds: string[] | undefined
+): Promise<any[]> {
+  let userProjects: any[] = [];
+  let promises: Promise<any>[] = [];
+
+  userProjectsIds?.forEach((project_id) => {
+    const promise = getProjectDetails(project_id)
+      .then((fetchedProject) => {
+        return JSON.parse(JSON.stringify(fetchedProject));
+      })
+      .then((result) => {
+        userProjects.push(result);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+
+    promises.push(promise);
+  });
+
+  await Promise.all(promises);
+
+  return userProjects;
+}
