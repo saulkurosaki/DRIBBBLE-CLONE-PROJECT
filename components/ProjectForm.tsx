@@ -1,26 +1,27 @@
 "use client";
 
-import { ProjectFormProps, UserProps } from "@/types";
+import { ProjectFormProps } from "@/types";
 import Image from "next/image";
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useState } from "react";
 import FormField from "./FormField";
 import { categoryFilters } from "@/constants";
 import CustomMenu from "./CustomMenu";
 import CustomButton from "./CustomButton";
-import { createNewProject } from "@/lib/actions/project.actions";
+import { createNewProject, updateProject } from "@/lib/actions/project.actions";
 import { useRouter } from "next/navigation";
+import { FormState } from "@/common.types";
 
-const ProjectForm = ({ type, user }: ProjectFormProps) => {
+const ProjectForm = ({ type, user, project }: ProjectFormProps) => {
   const router = useRouter();
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [form, setForm] = useState({
-    title: "",
-    description: "",
-    image: "",
-    liveSiteUrl: "",
-    githubUrl: "",
-    category: "",
+    title: project?.title || "",
+    description: project?.description || "",
+    image: project?.image || "",
+    liveSiteUrl: project?.liveSiteUrl || "",
+    githubUrl: project?.githubUrl || "",
+    category: project?.category || "",
   });
 
   const handleFormSubmit = async (e: React.FormEvent) => {
@@ -37,8 +38,24 @@ const ProjectForm = ({ type, user }: ProjectFormProps) => {
 
         router.push("/");
       }
+
+      if (type === "edit") {
+        const updatedProject = await updateProject({
+          form,
+          projectId: project?._id,
+          currentUserId: user?._id,
+        });
+
+        if (updatedProject) {
+          router.push(`/project/${updatedProject._id}`);
+        }
+      }
     } catch (error) {
-      console.log(error);
+      alert(
+        `Failed to ${
+          type === "create" ? "create" : "edit"
+        } a project. Try again!`
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -68,7 +85,7 @@ const ProjectForm = ({ type, user }: ProjectFormProps) => {
     };
   };
 
-  const handleStateChange = (fieldName: string, value: string) => {
+  const handleStateChange = (fieldName: keyof FormState, value: string) => {
     setForm((prevState) => ({ ...prevState, [fieldName]: value }));
   };
 
