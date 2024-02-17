@@ -91,6 +91,7 @@ export type RelatedProjectsProps = {
 export type ProjectFormProps = {
   type: string;
   user: UserProps;
+  project?: ProjectInterface;
 };
 
 export type ProjectActionsProps = {
