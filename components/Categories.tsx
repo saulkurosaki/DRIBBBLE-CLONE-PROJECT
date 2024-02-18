@@ -11,9 +11,9 @@ const Categories = () => {
 
   const category = searchParams.get("category");
 
-  //   const handleTags = (item: string) => {
-  //     router.push(`${pathName}?category=${item}`);
-  //   };
+  const handleTags = (item: string) => {
+    router.push(`${pathName}?category=${item}`);
+  };
 
   return (
     <div className="flexBetween w-full gap-5 flex-wrap">
@@ -22,12 +22,12 @@ const Categories = () => {
           <button
             key={filter}
             type="button"
-            onClick={() => {}} // () => handleTags(filter)
-            // className={`${
-            //   category === filter
-            //     ? "bg-light-white-300 font-medium"
-            //     : "font-normal"
-            // } px-4 py-3 rounded-lg capitalize whitespace-nowrap`}
+            onClick={() => handleTags(filter)}
+            className={`${
+              category === filter
+                ? "bg-light-white-300 font-medium"
+                : "font-normal"
+            } px-4 py-3 rounded-lg capitalize whitespace-nowrap`}
           >
             {filter}
           </button>
