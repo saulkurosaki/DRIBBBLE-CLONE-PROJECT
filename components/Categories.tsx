@@ -5,11 +5,11 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { categoryFilters } from "@/constants";
 
 const Categories = () => {
-  //   const router = useRouter();
-  //   const pathName = usePathname();
-  //   const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathName = usePathname();
+  const searchParams = useSearchParams();
 
-  //   const category = searchParams.get("category");
+  const category = searchParams.get("category");
 
   //   const handleTags = (item: string) => {
   //     router.push(`${pathName}?category=${item}`);
