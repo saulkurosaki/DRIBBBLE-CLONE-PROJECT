@@ -54,7 +54,7 @@ const ProjectCard = ({
                 alt="profile image"
               />
             )}
-            {userId}
+            {name ? name : userId}
           </Link>
         </p>
 
