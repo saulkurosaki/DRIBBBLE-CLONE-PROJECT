@@ -31,12 +31,12 @@ const ProfilePage = async ({ user }: Props) => {
           </p>
 
           <div className="flex mt-8 gap-5 w-full flex-wrap">
-            {/* <CustomButton
+            <CustomButton
               title="Follow"
               leftIcon="/plus-round.svg"
               bgColor="bg-light-white-400 !w-max"
               textColor="text-black-100"
-            /> */}
+            />
             {/* <Link href={`mailto:${user?.email}`}>
               <CustomButton title="Hire Me" leftIcon="/email.svg" />
             </Link> */}
