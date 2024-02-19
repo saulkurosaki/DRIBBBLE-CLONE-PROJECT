@@ -5,7 +5,14 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
-const ProjectCard = ({ id, image, title, userId }: ProjectCardProps) => {
+const ProjectCard = ({
+  id,
+  image,
+  title,
+  name,
+  avatarUrl,
+  userId,
+}: ProjectCardProps) => {
   const [randomLikes, setRandomLikes] = useState(0);
   const [randomViews, setRandomViews] = useState("");
 
@@ -37,8 +44,16 @@ const ProjectCard = ({ id, image, title, userId }: ProjectCardProps) => {
 
       <div className="flexBetween w-full px-2 mt-3 font-semibold text-sm">
         <p>
-          <span className="font-bold text-[#9747FF]">CreatorId:</span>{" "}
           <Link href={`/profile/${userId}`} className="hover:text-[#9747FF]">
+            {avatarUrl && (
+              <Image
+                src={avatarUrl}
+                width={24}
+                height={24}
+                className="rounded-full"
+                alt="profile image"
+              />
+            )}
             {userId}
           </Link>
         </p>
