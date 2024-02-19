@@ -37,9 +37,9 @@ const ProfilePage = async ({ user }: Props) => {
               bgColor="bg-light-white-400 !w-max"
               textColor="text-black-100"
             />
-            {/* <Link href={`mailto:${user?.email}`}>
+            <Link href={`mailto:${user?.email}`}>
               <CustomButton title="Hire Me" leftIcon="/email.svg" />
-            </Link> */}
+            </Link>
           </div>
         </div>
 
