@@ -5,7 +5,6 @@ import { CreateNewProjectParams, UpdateProjectParams } from "@/types";
 import { uploadImage } from "../utils";
 import Project from "@/database/project.model";
 import User from "@/database/user.model";
-import { revalidatePath } from "next/cache";
 
 export const createNewProject = async (params: CreateNewProjectParams) => {
   try {
@@ -34,11 +33,19 @@ export const createNewProject = async (params: CreateNewProjectParams) => {
   }
 };
 
-export const fetchAllProjects = async () => {
+export const fetchAllProjects = async (category?: string) => {
   try {
     connectToDatabase();
 
-    const allProjects = await Project.find();
+    let allProjects = [];
+
+    if (category) {
+      allProjects = await Project.find({
+        category: { $regex: category, $options: "i" },
+      });
+    } else {
+      allProjects = await Project.find();
+    }
 
     return JSON.parse(JSON.stringify(allProjects));
   } catch (error) {
