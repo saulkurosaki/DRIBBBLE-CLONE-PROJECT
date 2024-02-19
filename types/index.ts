@@ -80,6 +80,8 @@ export type ProjectCardProps = {
   id: string;
   image: string;
   title: string;
+  name: string;
+  avatarUrl: string;
   userId: string;
 };
 
