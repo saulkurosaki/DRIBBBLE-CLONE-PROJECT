@@ -43,7 +43,7 @@ const ProfilePage = async ({ user }: Props) => {
           </div>
         </div>
 
-        {/* {userProjects?.length > 0 ? (
+        {userProjects?.length > 0 ? (
           <Image
             src={userProjects[0]?.image}
             alt="project image"
@@ -59,7 +59,7 @@ const ProfilePage = async ({ user }: Props) => {
             alt="project image"
             className="rounded-xl"
           />
-        )} */}
+        )}
       </section>
 
       {/* <section className="flexStart flex-col lg:mt-28 mt-16 w-full">
