@@ -62,7 +62,7 @@ const ProfilePage = async ({ user }: Props) => {
         )}
       </section>
 
-      {/* <section className="flexStart flex-col lg:mt-28 mt-16 w-full">
+      <section className="flexStart flex-col lg:mt-28 mt-16 w-full">
         <p className="w-full text-left text-lg font-semibold">Recent Work</p>
 
         <div className="profile_projects">
@@ -78,7 +78,7 @@ const ProfilePage = async ({ user }: Props) => {
             />
           ))}
         </div>
-      </section> */}
+      </section>
     </section>
   );
 };
