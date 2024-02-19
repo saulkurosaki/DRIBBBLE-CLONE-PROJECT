@@ -26,9 +26,9 @@ const ProfilePage = async ({ user }: Props) => {
             alt="user image"
           />
           <p className="text-4xl font-bold mt-10">{user?.name}</p>
-          {/* <p className="md:text-5xl text-3xl font-extrabold md:mt-10 mt-5 max-w-lg">
+          <p className="md:text-5xl text-3xl font-extrabold md:mt-10 mt-5 max-w-lg">
             I’m a Software Engineer and a Front-End Web Developer 👋
-          </p> */}
+          </p>
 
           <div className="flex mt-8 gap-5 w-full flex-wrap">
             {/* <CustomButton
