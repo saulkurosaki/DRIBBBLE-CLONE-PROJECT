@@ -1,9 +1,7 @@
 import Categories from "@/components/Categories";
 import ProjectCard from "@/components/ProjectCard";
 import { fetchAllProjects } from "@/lib/actions/project.actions";
-import { getUserById } from "@/lib/actions/user.actions";
 import { ProjectInterface } from "@/types";
-import { auth, clerkClient } from "@clerk/nextjs";
 
 type SearchParams = {
   category?: string;
@@ -41,8 +39,6 @@ const Home = async ({ searchParams: { category } }: Props) => {
           />
         ))}
       </section>
-
-      <h1>LoadMore</h1>
     </section>
   );
 };
