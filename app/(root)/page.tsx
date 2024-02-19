@@ -5,8 +5,16 @@ import { getUserById } from "@/lib/actions/user.actions";
 import { ProjectInterface } from "@/types";
 import { auth, clerkClient } from "@clerk/nextjs";
 
-const Home = async () => {
-  const projects = await fetchAllProjects();
+type SearchParams = {
+  category?: string;
+};
+
+type Props = {
+  searchParams: SearchParams;
+};
+
+const Home = async ({ searchParams: { category } }: Props) => {
+  const projects = await fetchAllProjects(category);
 
   if (projects.length === 0) {
     return (
