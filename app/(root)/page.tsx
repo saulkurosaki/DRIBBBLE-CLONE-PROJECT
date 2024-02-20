@@ -1,7 +1,9 @@
 import Categories from "@/components/Categories";
 import ProjectCard from "@/components/ProjectCard";
 import { fetchAllProjects } from "@/lib/actions/project.actions";
-import { ProjectInterface } from "@/types";
+import { getUserById } from "@/lib/actions/user.actions";
+import { enhanceProjectsWithAuthor } from "@/lib/utils";
+import { ProjectInterface, ProjectProps } from "@/types";
 
 type SearchParams = {
   category?: string;
@@ -12,7 +14,9 @@ type Props = {
 };
 
 const Home = async ({ searchParams: { category } }: Props) => {
-  const projects = await fetchAllProjects(category);
+  const fetchedProjects = await fetchAllProjects(category);
+
+  const projects = await enhanceProjectsWithAuthor(fetchedProjects);
 
   if (projects.length === 0) {
     return (
@@ -35,6 +39,8 @@ const Home = async ({ searchParams: { category } }: Props) => {
             id={project?._id}
             image={project?.image}
             title={project?.title}
+            name={project.author}
+            avatarUrl={project.authorImage}
             userId={project.createdBy}
           />
         ))}
