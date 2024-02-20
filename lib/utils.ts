@@ -2,10 +2,7 @@ import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { getProjectDetails } from "./actions/project.actions";
 
-const isProduction = process.env.NODE_ENV === "production";
-const serverUrl = isProduction
-  ? process.env.NEXT_PUBLIC_SERVER_URL
-  : "http://localhost:3000";
+const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL;
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
