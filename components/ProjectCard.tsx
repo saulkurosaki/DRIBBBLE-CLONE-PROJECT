@@ -45,16 +45,14 @@ const ProjectCard = ({
       <div className="flexBetween w-full px-2 mt-3 font-semibold text-sm">
         <p>
           <Link href={`/profile/${userId}`} className="hover:text-[#9747FF]">
-            {avatarUrl && (
-              <Image
-                src={avatarUrl}
-                width={24}
-                height={24}
-                className="rounded-full"
-                alt="profile image"
-              />
-            )}
-            {name ? name : userId}
+            <Image
+              src={avatarUrl!}
+              width={24}
+              height={24}
+              className="rounded-full"
+              alt="profile image"
+            />
+            {name}
           </Link>
         </p>
 
