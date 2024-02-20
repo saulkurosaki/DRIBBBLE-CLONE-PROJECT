@@ -74,6 +74,8 @@ export type ProjectInterface = {
   githubUrl: string;
   category: string;
   createdBy: string;
+  author?: string;
+  authorImage?: string;
 };
 
 export type ProjectCardProps = {
