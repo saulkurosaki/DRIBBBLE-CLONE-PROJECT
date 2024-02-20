@@ -1,6 +1,7 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { getProjectDetails } from "./actions/project.actions";
+import { getUserById } from "./actions/user.actions";
 
 const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL;
 
@@ -45,4 +46,22 @@ export async function getUserProjects(
   await Promise.all(promises);
 
   return userProjects;
+}
+
+export async function enhanceProjectsWithAuthor(projects: any[]) {
+  const fetchedProjects = await Promise.all(
+    projects.map(async (project) => {
+      const authorDetails = await getUserById(project.createdBy);
+      const author = authorDetails.name;
+      const authorImage = authorDetails.avatarUrl;
+
+      return {
+        ...project,
+        author,
+        authorImage,
+      };
+    })
+  );
+
+  return fetchedProjects;
 }
